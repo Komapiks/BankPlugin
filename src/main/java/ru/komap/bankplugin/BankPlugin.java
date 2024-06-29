@@ -2,14 +2,17 @@ package ru.komap.bankplugin;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
+import ru.komap.bankplugin.discord.Bot;
 import ru.komap.bankplugin.utils.*;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public final class BankPlugin extends JavaPlugin {
+    public Logger logger = this.getLogger();
     @Override
     public void onEnable() {
-        this.getLogger().info("Bank is started.");
+        logger.info("Bank is started.");
         Objects.requireNonNull(this.getCommand("deposit")).setExecutor((CommandExecutor)new BankCommandExecutor(this));
         Objects.requireNonNull(this.getCommand("withdraw")).setExecutor((CommandExecutor)new BankCommandExecutor(this));
         Objects.requireNonNull(this.getCommand("transfer")).setExecutor((CommandExecutor)new BankCommandExecutor(this));
@@ -19,9 +22,11 @@ public final class BankPlugin extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new EventsListener(), this);
         Objects.requireNonNull(this.getCommand("disaster")).setExecutor(new Disaster());
         Objects.requireNonNull(getCommand("minusfps")).setExecutor(new MinusFps());
+        Bot bot = new Bot();
+        bot.start();
     }
     @Override
     public void onDisable() {
-        this.getLogger().info("Bank is stopped.");
+        logger.info("Bank is stopped.");
     }
 }
