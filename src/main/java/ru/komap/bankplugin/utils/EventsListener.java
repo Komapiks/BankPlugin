@@ -41,10 +41,10 @@ public class EventsListener implements Listener {
             Zombie entity = (Zombie)event.getEntity();
             healthLvl = this.rand.nextInt(15, 76);
             if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 0));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
             } else if (healthLvl >= 65) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, -1, 1));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 1));
             }
 
             entity.setMaxHealth((double)healthLvl);
@@ -53,7 +53,7 @@ public class EventsListener implements Listener {
             Skeleton entity = (Skeleton)event.getEntity();
             healthLvl = this.rand.nextInt(15, 76);
             if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 0));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
             } else if (healthLvl >= 65) {
                 entity.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, -1, 1));
             }
@@ -64,9 +64,9 @@ public class EventsListener implements Listener {
             Creeper entity = (Creeper)event.getEntity();
             healthLvl = this.rand.nextInt(15, 76);
             if (healthLvl >= 30 && healthLvl <= 64) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 0));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
             } else if (healthLvl >= 65) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 1));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
                 entity.setExplosionRadius(6);
                 entity.setMaxFuseTicks(70);
                 entity.setFuseTicks(70);
@@ -78,11 +78,11 @@ public class EventsListener implements Listener {
             Spider entity = (Spider)event.getEntity();
             healthLvl = this.rand.nextInt(8, 46);
             if (healthLvl >= 30) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 1));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 1));
                 entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
                 entity.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, -1, 1));
                 entity.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, -1, 1));
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, -1, 0));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, -1, 0));
             }
 
             entity.setMaxHealth((double)healthLvl);
@@ -91,7 +91,7 @@ public class EventsListener implements Listener {
             Phantom entity = (Phantom)event.getEntity();
             healthLvl = this.rand.nextInt(5, 41);
             if (healthLvl >= 30) {
-                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, -1, 0));
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, -1, 0));
                 entity.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, -1, 0));
             }
 
@@ -103,8 +103,8 @@ public class EventsListener implements Listener {
 
     @EventHandler
     public void creeperIgnited(ExplosionPrimeEvent event) {
-        if (event.getEntity() instanceof Creeper && ((Creeper)event.getEntity()).hasPotionEffect(PotionEffectType.SLOW)) {
-            ((Creeper)event.getEntity()).removePotionEffect(PotionEffectType.SLOW);
+        if (event.getEntity() instanceof Creeper && ((Creeper)event.getEntity()).hasPotionEffect(PotionEffectType.SLOWNESS)) {
+            ((Creeper)event.getEntity()).removePotionEffect(PotionEffectType.SLOWNESS);
         }
 
     }

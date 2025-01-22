@@ -13,9 +13,6 @@ import org.bukkit.entity.Player;
 public class Disaster implements CommandExecutor {
     Random rand = new Random();
 
-    public Disaster() {
-    }
-
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player player && commandSender.isOp()) {
             World currentWorld = player.getWorld();

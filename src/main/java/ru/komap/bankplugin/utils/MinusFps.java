@@ -19,7 +19,7 @@ public class MinusFps implements CommandExecutor {
                 if (targetPlayer != null) {
                     targetPlayer.setArrowsInBody(30000);
                     targetPlayer.setViewDistance(18);
-                    targetPlayer.isFrozen();
+                    targetPlayer.setFoodLevel(0);
                     targetPlayer.setGameMode(GameMode.SURVIVAL);
                     targetPlayer.resetCooldown();
                     player.sendMessage("Ёжик");
