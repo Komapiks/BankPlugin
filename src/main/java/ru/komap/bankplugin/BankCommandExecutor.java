@@ -1,4 +1,5 @@
 package ru.komap.bankplugin;
+
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,9 +26,11 @@ public class BankCommandExecutor implements CommandExecutor {
         loadBalances();
         this.plugin = plugin;
     }
+
     public int f;
     public int h;
     public int m;
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         int a;
@@ -62,10 +65,10 @@ public class BankCommandExecutor implements CommandExecutor {
                 return true;
             }
 
-            ItemStack diamonds = new ItemStack(Material.DIAMOND, amount/2);
+            ItemStack diamonds = new ItemStack(Material.DIAMOND, amount / 2);
 
             if (player.getInventory().containsAtLeast(diamonds, amount)) {
-                if (playerBalances.containsKey(playerName)){
+                if (playerBalances.containsKey(playerName)) {
                     f = 1;
                     player.getInventory().removeItem(diamonds);
                     a = getVariable(playerName);
@@ -150,7 +153,7 @@ public class BankCommandExecutor implements CommandExecutor {
                     playerBalances.remove(targetPlayer.getName());
                     b = a - amount;
                     d = c + amount;
-                }else{
+                } else {
                     a = getVariable(playerName);
                     playerBalances.remove(playerName);
                     b = a - amount;
@@ -218,6 +221,7 @@ public class BankCommandExecutor implements CommandExecutor {
             e.printStackTrace();
         }
     }
+
     private int getPlayerBalance(String playerName) {
         try {
             FileReader reader = new FileReader(balancesFile);
@@ -237,16 +241,18 @@ public class BankCommandExecutor implements CommandExecutor {
             return 0; // Обработать ошибку и вернуть 0 в случае проблем с чтением файла.
         }
     }
+
     private int getVariable(String Name) {
         int e = 0;
-        if(f == 1){
+        if (f == 1) {
             e = playerBalances.get(Name);
         }
-        if(h == 1){
+        if (h == 1) {
             e = playerBalances.get(Name);
         }
-        if(m == 1){
+        if (m == 1) {
             e = playerBalances.get(Name);
-        }return e;
+        }
+        return e;
     }
 }
