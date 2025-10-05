@@ -8,6 +8,5 @@ import org.bukkit.block.Block;
 public class MeteorCreator {
     private void createBigMeteorite(Location location) {
         World world = location.getWorld();
-
     }
 }

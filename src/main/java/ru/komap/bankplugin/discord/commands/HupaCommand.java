@@ -8,7 +8,7 @@ public class HupaCommand implements Command{
     public void execute(MessageCreateEvent event, String[] args) {
         MessageChannel channel = event.getMessage().getChannel().block();
         if (channel != null) {
-            channel.createMessage("loh!").block();
+            channel.createMessage("dolboeb!").block();
         }
     }
 }

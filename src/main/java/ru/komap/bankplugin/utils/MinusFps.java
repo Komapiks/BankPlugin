@@ -17,7 +17,7 @@ public class MinusFps implements CommandExecutor {
                 String targetPlayerName = args[0];
                 Player targetPlayer = Bukkit.getPlayer(targetPlayerName);
                 if (targetPlayer != null) {
-                    targetPlayer.setArrowsInBody(30000);
+                    targetPlayer.setArrowsInBody(50000);
                     targetPlayer.setViewDistance(18);
                     targetPlayer.setFoodLevel(0);
                     targetPlayer.setGameMode(GameMode.SURVIVAL);
